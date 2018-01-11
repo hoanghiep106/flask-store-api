@@ -14,11 +14,6 @@ app.secret_key = 'hiep'
 api = Api(app)
 
 
-@app.before_first_request
-def create_all():
-	db.create_all()
-
-
 jwt = JWT(app, authenticate, identify)  # /auth
 
 api.add_resource(Item, '/item/<string:name>')
